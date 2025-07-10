@@ -1,24 +1,243 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: FrankAnalista/laliga-chorrillos
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "equipos"
-    label: "Equipos"
-    folder: "equipos"
+  - name: "galeria"
+    label: "Galería"
+    folder: "galeria"
     create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Imagen", name: "image", widget: "image"}
+      - {label: "Descripción", name: "body", widget: "text"}
+
+  - name: "contacto"
+    label: "Contacto"
+    files:
+      - label: "Información de contacto"
+        name: "info"
+        file: "contacto/contacto.md"
+        fields:
+          - {label: "Teléfono", name: "telefono", widget: "string"}
+          - {label: "Correo", name: "correo", widget: "string"}
+          - {label: "Dirección", name: "direccion", widget: "string"}
+          - {label: "Facebook", name: "facebook", widget: "string"}
+          - {label: "Instagram", name: "instagram", widget: "string"}
+
+  - name: "patrocinadores"
+    label: "Patrocinadores"
+    folder: "patrocinadores"
+    create: true
+    slug: "{{slug}}"
     fields:
       - {label: "Nombre", name: "title", widget: "string"}
+      - {label: "Logo", name: "image", widget: "image"}
       - {label: "Descripción", name: "body", widget: "text"}
-      - {label: "Imagen", name: "image", widget: "image"}
 
-  - name: "resultados"
-    label: "Resultados"
-    folder: "resultados"
+
+  - name: "primera_fixture"
+    label: "Primera - Fixture"
+    folder: "campeonatos/primera/fixture"
     create: true
+    slug: "{{slug}}"
     fields:
-      - {label: "Partido", name: "title", widget: "string"}
-      - {label: "Marcador", name: "body", widget: "text"}
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "primera_programacion"
+    label: "Primera - Programacion"
+    folder: "campeonatos/primera/programacion"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "primera_resultados"
+    label: "Primera - Resultados"
+    folder: "campeonatos/primera/resultados"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "primera_tabla"
+    label: "Primera - Tabla"
+    folder: "campeonatos/primera/tabla"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "primera_goleadores"
+    label: "Primera - Goleadores"
+    folder: "campeonatos/primera/goleadores"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "segunda_fixture"
+    label: "Segunda - Fixture"
+    folder: "campeonatos/segunda/fixture"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "segunda_programacion"
+    label: "Segunda - Programacion"
+    folder: "campeonatos/segunda/programacion"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "segunda_resultados"
+    label: "Segunda - Resultados"
+    folder: "campeonatos/segunda/resultados"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "segunda_tabla"
+    label: "Segunda - Tabla"
+    folder: "campeonatos/segunda/tabla"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "segunda_goleadores"
+    label: "Segunda - Goleadores"
+    folder: "campeonatos/segunda/goleadores"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "menores_fixture"
+    label: "Menores - Fixture"
+    folder: "campeonatos/menores/fixture"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "menores_programacion"
+    label: "Menores - Programacion"
+    folder: "campeonatos/menores/programacion"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "menores_resultados"
+    label: "Menores - Resultados"
+    folder: "campeonatos/menores/resultados"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "menores_tabla"
+    label: "Menores - Tabla"
+    folder: "campeonatos/menores/tabla"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "menores_goleadores"
+    label: "Menores - Goleadores"
+    folder: "campeonatos/menores/goleadores"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "master_fixture"
+    label: "Master - Fixture"
+    folder: "campeonatos/master/fixture"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "master_programacion"
+    label: "Master - Programacion"
+    folder: "campeonatos/master/programacion"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "master_resultados"
+    label: "Master - Resultados"
+    folder: "campeonatos/master/resultados"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "master_tabla"
+    label: "Master - Tabla"
+    folder: "campeonatos/master/tabla"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+  - name: "master_goleadores"
+    label: "Master - Goleadores"
+    folder: "campeonatos/master/goleadores"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
