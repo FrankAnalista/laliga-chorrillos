@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: FrankAnalista/laliga-chorrillos
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "galeria"
+    label: "Galería"
+    folder: "galeria"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Imagen", name: "image", widget: "image"}
+      - {label: "Descripción", name: "body", widget: "text"}
+
+  - name: "contacto"
+    label: "Contacto"
+    files:
+      - label: "Información de contacto"
+        name: "info"
+        file: "contacto/contacto.md"
+        fields:
+          - {label: "Teléfono", name: "telefono", widget: "string"}
+          - {label: "Correo", name: "correo", widget: "string"}
+          - {label: "Dirección", name: "direccion", widget: "string"}
+          - {label: "Facebook", name: "facebook", widget: "string"}
+          - {label: "Instagram", name: "instagram", widget: "string"}
